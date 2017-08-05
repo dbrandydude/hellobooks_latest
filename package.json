@@ -4,7 +4,8 @@
   "description": "Hello-Books is a simple application that helps manage a library and its processes like stocking, tracking and renting books.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "start": "nodemon ./server/bin/www"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/dbrandydude/hellobooks/issues"
   },
-  "homepage": "https://github.com/dbrandydude/hellobooks#readme"
+  "homepage": "https://github.com/dbrandydude/hellobooks#readme",
+  "dependencies": {
+    "body-parser": "~1.17.1",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "ejs": "~2.5.6",
+    "express": "~4.15.2",
+    "morgan": "~1.8.1",
+    "serve-favicon": "~2.4.2"
+  }
 }
