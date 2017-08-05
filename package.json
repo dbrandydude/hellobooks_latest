@@ -1,0 +1,20 @@
+{
+  "name": "hellobooks",
+  "version": "1.0.1",
+  "description": "Hello-Books is a simple application that helps manage a library and its processes like stocking, tracking and renting books.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbrandydude/hellobooks.git"
+  },
+  "keywords": ["hellobooks", "library", "book"],
+  "author": "Harry Dbrandy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dbrandydude/hellobooks/issues"
+  },
+  "homepage": "https://github.com/dbrandydude/hellobooks#readme"
+}
