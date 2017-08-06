@@ -1,5 +1,6 @@
-'use strict';
-module.exports = {
+/* eslint no-unused-vars: ["error", { "args": "none" }] */
+
+exports = {
     up: (queryInterface, Sequelize) => {
         return queryInterface.createTable('Users', {
             id: {

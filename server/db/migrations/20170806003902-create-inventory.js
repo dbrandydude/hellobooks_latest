@@ -1,4 +1,4 @@
-'use strict';
+/* eslint no-unused-vars: ["error", { "args": "none" }] */
 
 module.exports = {
     up: (queryInterface, Sequelize) => {
