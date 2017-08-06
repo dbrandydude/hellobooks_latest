@@ -38,7 +38,21 @@ const update = (req, res) => {
         });
 };
 
+/* Get all books */
+const retrieveAll = (req, res) => {
+    return Book.all()
+        .then(books => res.status(200).send({
+            status: 'success',
+            data: books
+        }))
+        .catch(err => res.status(400).send({
+            status: 'error',
+            data: err
+        }));
+};
+
 module.exports = {
     create,
-    update
+    update,
+    retrieveAll
 };

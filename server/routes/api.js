@@ -16,4 +16,7 @@ router.post('/books', bookController.create);
 /* PUT modify book */
 router.put('/books/:bookId', bookController.update);
 
+/* GET retrieve all books */
+router.get('/books', bookController.retrieveAll);
+
 module.exports = router;
