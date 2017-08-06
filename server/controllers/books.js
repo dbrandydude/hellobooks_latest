@@ -1,4 +1,5 @@
 const Book = require('../db/models').Book;
+const Inventory = require('../db/models').Inventory;
 
 /* Add book */
 const create = (req, res) => {
@@ -65,9 +66,32 @@ const retrieve = (req, res) => {
         }));
 };
 
+/* Borrow book */
+const borrow = (req, res) => {
+    const userId = parseInt(req.params.userId);
+    const bookId = req.body.bookId;
+
+    Book.findById(bookId)
+        .then(book => {
+            return Inventory.create({
+                userId,
+                book: book.title
+            })
+            .then(inventory => res.status(200).send({
+                status: 'success',
+                data: inventory
+            }));
+        })
+        .catch(err => res.status(400).send({
+            status: 'error',
+            data: err
+        }));
+};
+
 module.exports = {
     create,
     update,
     retrieveAll,
-    retrieve
+    retrieve,
+    borrow
 };

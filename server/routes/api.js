@@ -10,6 +10,9 @@ router.post('/users/signup', userController.create);
 /* POST user login */
 router.post('/users/signin', userController.login);
 
+/* POST borrow book */
+router.post('/users/:userId/books', bookController.borrow);
+
 /* POST add book */
 router.post('/books', bookController.create);
 
