@@ -19,4 +19,7 @@ router.put('/books/:bookId', bookController.update);
 /* GET retrieve all books */
 router.get('/books', bookController.retrieveAll);
 
+/* GET retrieve single book */
+router.get('/books/:bookId', bookController.retrieve);
+
 module.exports = router;

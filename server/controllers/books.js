@@ -51,8 +51,23 @@ const retrieveAll = (req, res) => {
         }));
 };
 
+/* GET single book */
+const retrieve = (req, res) => {
+    const id = parseInt(req.params.bookId);
+    return Book.findById(id)
+        .then(book => res.status(200).send({
+            status: 'success',
+            data: book
+        }))
+        .catch(err => res.status(400).send({
+            status: 'error',
+            data: err
+        }));
+};
+
 module.exports = {
     create,
     update,
-    retrieveAll
+    retrieveAll,
+    retrieve
 };
