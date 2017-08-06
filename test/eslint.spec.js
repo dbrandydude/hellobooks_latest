@@ -4,8 +4,8 @@ var lint = require('mocha-eslint');
 // Note: a seperate Mocha test will be run for each path and each file which
 // matches a glob pattern
 var paths = [
-    'server/app.js',
-    'server/routes/*.js'
+    'server/app.js'
+    // 'server/routes/*.js'
 ];
 
 var options = {
