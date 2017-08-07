@@ -88,10 +88,19 @@ const borrow = (req, res) => {
         }));
 };
 
+/* Get books borrowed by user */
+const userInventory = (req, res) => {
+    return Inventory
+        .findAll({ where: { userId: req.params.userId }})
+        .then(books => res.send(books))
+        .catch(err => res.send('err'));
+};
+
 module.exports = {
     create,
     update,
     retrieveAll,
     retrieve,
-    borrow
+    borrow,
+    userInventory
 };

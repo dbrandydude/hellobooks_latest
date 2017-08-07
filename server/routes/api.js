@@ -13,6 +13,9 @@ router.post('/users/signin', userController.login);
 /* POST borrow book */
 router.post('/users/:userId/books', bookController.borrow);
 
+/* GET get users borrowed books */
+router.get('/users/:userId/books', bookController.userInventory);
+
 /* POST add book */
 router.post('/books', bookController.create);
 

@@ -38,7 +38,16 @@ const login = (req, res, next) => {
     })(req, res, next);
 };
 
+/* User inventory */
+const inventory = (req, res) => {
+    const userId = parseInt(req.params.userId);
+    return User.getBooks
+        .then(books => res.send(books))
+        .catch(err => res.send(err));
+};
+
 module.exports = {
     create,
-    login
+    login,
+    inventory
 };
