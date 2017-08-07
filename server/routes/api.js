@@ -13,8 +13,11 @@ router.post('/users/signin', userController.login);
 /* POST borrow book */
 router.post('/users/:userId/books', bookController.borrow);
 
-/* GET get users borrowed books */
+/* GET user borrowed books */
 router.get('/users/:userId/books', bookController.userInventory);
+
+/* PUT allow user to return book */
+router.put('/users/:userId/books', bookController.returnBook);
 
 /* POST add book */
 router.post('/books', bookController.create);

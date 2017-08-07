@@ -90,10 +90,35 @@ const borrow = (req, res) => {
 
 /* Get books borrowed by user */
 const userInventory = (req, res) => {
+    if (req.query.returned) {
+        Inventory.findAll({ where: { return: req.query.returned } })
+        .then(books => res.send(books))
+        .catch(err => res.send('err'));
+    }
     return Inventory
         .findAll({ where: { userId: req.params.userId }})
         .then(books => res.send(books))
         .catch(err => res.send('err'));
+};
+
+/* Return borrowed books */
+const returnBook = (req, res) => {
+    const inventoryId = parseInt(req.body.inventoryId);
+    return Inventory
+        .findById(inventoryId)
+        .then(book => {
+            if (!book) {
+                res.status(404).send({
+                    status: 'Not found'
+                });
+            }
+            book
+                .update({ return: true })
+                .then(() => {
+                    res.status(200).send({ status: 'success'});
+                })
+                .catch(err => res.status(400).send(err));
+        });
 };
 
 module.exports = {
@@ -102,5 +127,6 @@ module.exports = {
     retrieveAll,
     retrieve,
     borrow,
-    userInventory
+    userInventory,
+    returnBook
 };
